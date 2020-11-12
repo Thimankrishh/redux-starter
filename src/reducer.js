@@ -20,6 +20,11 @@ function reducer(state = [], action){ // reducer is a pure function.
 
         return state.filter( bug => bug.id !== action.payload.id);
     }
+    else if( action.type === 'bugResolved'){
 
+        return state.filter( bug => bug.id !== action.payload.id ? bug : {...state, resolved: true});
+    }
     return state;
 }
+
+export default reducer;
